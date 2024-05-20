@@ -1,0 +1,144 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos del Header */
+.header {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.header-image {
+    background-image: url('./img/header.png');
+    background-size: cover;
+    height: 100px;
+}
+
+/* Estilos del Contenedor Principal */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Estilos del Contenedor Izquierdo */
+.left-container {
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+}
+
+/* Estilos del Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#email {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(22, 134, 197);
+    background-color: transparent;
+    outline: none;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.email:focus {
+    border-color: rgb(22, 134, 197);
+    box-shadow: 0 0 5px rgba(22, 134, 197, 0.5);
+}
+
+button[type="button"] {
+    padding: 10px;
+    background-color: rgb(22, 134, 197);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    margin-top: 20px;
+    align-self: center;
+}
+
+/* Estilos del Contenedor Derecho */
+.right-container {
+    background-image: url('./img/ii.png');
+    background-size: cover;
+    height: 350px;
+}
+
+/* Estilos del Footer */
+.footer {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.footer-image {
+    background-image: url('./img/footer.png');
+    background-size: cover;
+    height: 300px;
+}
+
+/* Media query para dispositivos móviles */
+@media only screen and (max-width: 767px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .left-container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .right-container {
+        display: none;
+    }
+
+    .header-image {
+        background-image: url('./img/movilheader.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        background-color: white;
+        height: 140px;
+    }
+
+    .footer-image {
+        background-image: url('./img/movilfooter.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: white;
+        height: 140px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .main-container {
+        flex-direction: row;
+    }
+
+    .left-container {
+        width: 44%;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .right-container {
+        width: 56%;
+        display: block;
+        background-image: url('./img/ii.png');
+        background-size: cover;
+    }
+}
